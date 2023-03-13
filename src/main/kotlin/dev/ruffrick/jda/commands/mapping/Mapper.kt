@@ -4,6 +4,13 @@ import net.dv8tion.jda.api.entities.IMentionable
 import net.dv8tion.jda.api.entities.Role
 import net.dv8tion.jda.api.entities.User
 import net.dv8tion.jda.api.entities.channel.Channel
+import net.dv8tion.jda.api.entities.channel.concrete.Category
+import net.dv8tion.jda.api.entities.channel.concrete.ForumChannel
+import net.dv8tion.jda.api.entities.channel.concrete.NewsChannel
+import net.dv8tion.jda.api.entities.channel.concrete.StageChannel
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
+import net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel
+import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel
 import net.dv8tion.jda.api.interactions.commands.OptionType
 import kotlin.reflect.KClass
 import kotlin.reflect.full.memberFunctions
@@ -24,7 +31,17 @@ interface Mapper<S, T> {
             Long::class -> OptionType.INTEGER
             Boolean::class -> OptionType.BOOLEAN
             User::class -> OptionType.USER
+
+            // Channels
             Channel::class -> OptionType.CHANNEL
+            TextChannel::class -> OptionType.CHANNEL
+            VoiceChannel::class -> OptionType.CHANNEL
+            Category::class -> OptionType.CHANNEL
+            NewsChannel::class -> OptionType.CHANNEL
+            ThreadChannel::class -> OptionType.CHANNEL
+            StageChannel::class -> OptionType.CHANNEL
+            ForumChannel::class -> OptionType.CHANNEL
+
             Role::class -> OptionType.ROLE
             IMentionable::class -> OptionType.MENTIONABLE
             Double::class -> OptionType.NUMBER
