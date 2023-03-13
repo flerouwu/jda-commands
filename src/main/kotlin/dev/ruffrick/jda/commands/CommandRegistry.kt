@@ -144,7 +144,7 @@ class CommandRegistry(
                     options.add(
                         OptionData(
                             optionType, name, option.description.ifEmpty { name }, !parameter.type.isMarkedNullable
-                        )
+                        ).setChannelTypes(*parameter.findAnnotation<ChannelTypes>()?.channelTypes ?: arrayOf())
                     )
                 }
             }
