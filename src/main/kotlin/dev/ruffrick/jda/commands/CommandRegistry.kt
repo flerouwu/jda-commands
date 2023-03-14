@@ -10,6 +10,13 @@ import dev.ruffrick.jda.kotlinx.LogFactory
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.entities.*
 import net.dv8tion.jda.api.entities.channel.Channel
+import net.dv8tion.jda.api.entities.channel.concrete.Category
+import net.dv8tion.jda.api.entities.channel.concrete.ForumChannel
+import net.dv8tion.jda.api.entities.channel.concrete.NewsChannel
+import net.dv8tion.jda.api.entities.channel.concrete.StageChannel
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
+import net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel
+import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.interactions.commands.Command.Choice
@@ -35,7 +42,17 @@ class CommandRegistry(
         Long::class to OptionType.INTEGER,
         Boolean::class to OptionType.BOOLEAN,
         User::class to OptionType.USER,
+
+        // Channels
         Channel::class to OptionType.CHANNEL,
+        TextChannel::class to OptionType.CHANNEL,
+        VoiceChannel::class to OptionType.CHANNEL,
+        Category::class to OptionType.CHANNEL,
+        NewsChannel::class to OptionType.CHANNEL,
+        ThreadChannel::class to OptionType.CHANNEL,
+        StageChannel::class to OptionType.CHANNEL,
+        ForumChannel::class to OptionType.CHANNEL,
+
         Role::class to OptionType.ROLE,
         IMentionable::class to OptionType.MENTIONABLE,
         Double::class to OptionType.NUMBER,
